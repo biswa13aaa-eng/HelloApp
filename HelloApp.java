@@ -8,19 +8,20 @@ public class HelloApp {
         } 
         else {
             StringBuilder nameBuilder = new StringBuilder();
-            boolean first = true;
 
-            // Enhanced for loop to read all arguments
+            // Add names with comma and space
             for (String name : args) {
-                if (!first) {
-                    nameBuilder.append(", ");
-                }
-                nameBuilder.append(name);
-                first = false;
+                nameBuilder.append(name).append(", ");
             }
 
-            // Display greeting
-            System.out.println("Hello, " + nameBuilder.toString() + "!");
+            // Remove the last ", "
+            String names = "";
+            if (nameBuilder.length() > 0) {
+                names = nameBuilder.substring(0, nameBuilder.length() - 2);
+            }
+
+            // Print greeting
+            System.out.println("Hello, " + names + "!");
         }
     }
 }
